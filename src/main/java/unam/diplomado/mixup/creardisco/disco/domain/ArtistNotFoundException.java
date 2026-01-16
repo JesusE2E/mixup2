@@ -1,0 +1,9 @@
+package unam.diplomado.mixup.creardisco.disco.domain;
+
+public class ArtistNotFoundException extends RuntimeException {
+    public ArtistNotFoundException(Integer id) {
+        super(
+                "El artista con id: "+ id +" no existe"
+        );
+    }
+}
