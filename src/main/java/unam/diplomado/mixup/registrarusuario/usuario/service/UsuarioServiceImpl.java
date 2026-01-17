@@ -10,6 +10,7 @@ import unam.diplomado.mixup.registrarusuario.usuario.domain.*;
 import unam.diplomado.mixup.registrarusuario.usuario.repository.DomicilioRepository;
 import unam.diplomado.mixup.registrarusuario.usuario.repository.UsuarioRepository;
 import unam.diplomado.mixup.registrarusuario.usuario.repository.TipoDomicilioRepository;
+import unam.diplomado.mixup.registrarusuario.usuario.service.messaging.NotificacionProducer;
 
 import java.util.Optional;
 
@@ -24,6 +25,9 @@ public class UsuarioServiceImpl implements UsuarioService{
     private TipoDomicilioRepository tipoDomicilioRepository;
     @Inject
     private ColoniaRepository coloniaRepository;
+
+    @Inject
+    private NotificacionProducer notificacionProducer;
 
 
     @Override
@@ -55,6 +59,7 @@ throw  new UsuarioAlreadyExistsException(usuario.getEmail());
         usuarioRepository.save(usuario);
         domicilio.setUsuario(usuario);
         domicilioRepository.save(domicilio);
+        notificacionProducer.enviarNotificacionAltaUsuario(usuario.getId(),usuario.getEmail());
         return usuario;
     }
 }
