@@ -1,6 +1,7 @@
 package unam.diplomado.mixup.creardisco.disco.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,11 +19,14 @@ public class Disco implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "El titulo no puede estar vacio")
     private String titulo;
+    @NotBlank(message = "El precio no puede estar vacio")
     private Double precio;
     private Integer existencia;
     private Double descuento;
     private Date fechaLanzamiento;
+
     private String imagen;
 
     @ManyToOne(targetEntity = Artista.class)

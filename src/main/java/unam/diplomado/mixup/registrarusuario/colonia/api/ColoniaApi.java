@@ -7,6 +7,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import unam.diplomado.mixup.registrarusuario.colonia.api.dto.ColoniaDTO;
+import unam.diplomado.mixup.registrarusuario.colonia.api.dto.ColoniaRequestDTO;
 import unam.diplomado.mixup.registrarusuario.colonia.domain.Colonia;
 
 import java.util.Collection;
@@ -26,7 +27,7 @@ public interface ColoniaApi {
     void deleteColonia(@PathParam("id")Integer id);
 
     @POST
-    Response createColonia(@NotNull @Valid Colonia colonia);
+    Response createColonia(@NotNull @Valid ColoniaRequestDTO colonia);
 
     @PUT
     @Path("{id}")

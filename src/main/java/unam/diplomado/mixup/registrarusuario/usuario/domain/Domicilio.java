@@ -31,7 +31,15 @@ public class Domicilio implements Serializable {
     private TipoDomicilio tipoDomicilio;
 
 
-
+public Domicilio(String calle,Integer numExterior,Integer numInterior,Integer idColonia,Integer idTipoDomicilio){
+this.calle=calle;
+this.numExterior=numExterior;
+this.numInterior=numInterior;
+this.colonia=new Colonia();
+this.colonia.setId(idColonia);
+    this.tipoDomicilio=new TipoDomicilio();
+    this.tipoDomicilio.setId(idTipoDomicilio);
+}
 
 
 

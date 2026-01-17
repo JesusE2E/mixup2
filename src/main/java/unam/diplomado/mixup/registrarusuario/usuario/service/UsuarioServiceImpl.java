@@ -2,6 +2,7 @@ package unam.diplomado.mixup.registrarusuario.usuario.service;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import unam.diplomado.mixup.registrarusuario.colonia.domain.Colonia;
 import unam.diplomado.mixup.registrarusuario.colonia.domain.ColoniaNotFoundException;
 import unam.diplomado.mixup.registrarusuario.colonia.repository.ColoniaRepository;
@@ -26,6 +27,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 
     @Override
+    @Transactional(value=Transactional.TxType.REQUIRED)
     public Usuario registrarUsuario(Usuario usuario, Domicilio domicilio) {
         /*
          * Validacion de usuario duplicado
