@@ -32,10 +32,10 @@ public class JpaDiscoRepository implements DiscoRepository{
     public Optional<Disco> findByTituloAndArtista(String titulo, Integer idArtista) {
         TypedQuery<Disco> query=entityManager.createQuery(
 
-                    "Select d From Disco d where d.titulo=:titulo And d.id:=idArtista"
+                "Select d From Disco d where d.titulo=:titulo And d.artista.id=:idArtista"
 
                 ,Disco.class
-                );
+        );
         query.setParameter("titulo",titulo);
         query.setParameter("idArtista",idArtista);
         List<Disco> discos=query.getResultList();

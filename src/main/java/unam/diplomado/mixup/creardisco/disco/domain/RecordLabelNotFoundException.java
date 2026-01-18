@@ -1,5 +1,8 @@
 package unam.diplomado.mixup.creardisco.disco.domain;
 
+import jakarta.ejb.ApplicationException;
+
+@ApplicationException
 public class RecordLabelNotFoundException extends RuntimeException {
     public RecordLabelNotFoundException(Integer id) {
         super(

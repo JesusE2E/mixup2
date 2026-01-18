@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"id_artista","imagen"})})
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"id_artista","titulo"})})
 public class Disco implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,7 @@ public class Disco implements Serializable {
     private Double precio;
     private Integer existencia;
     private Double descuento;
+    @Column(name = "fecha_lanzamiento")
     private Date fechaLanzamiento;
     private String imagen;
 
@@ -30,12 +31,12 @@ public class Disco implements Serializable {
     @NotNull(message = "El disco debe estar asociado a un artista existente")
         private Artista artista;
 
-    @ManyToOne(targetEntity = Artista.class)
+    @ManyToOne(targetEntity = Disquera.class)
     @JoinColumn(name="id_disquera")
     @NotNull(message = "El disco debe estar asociado a una disquera existente")
     private Disquera disquera;
 
-    @ManyToOne(targetEntity = Artista.class)
+    @ManyToOne(targetEntity = GeneroMusical.class)
     @JoinColumn(name="id_genero_musical")
     @NotNull(message = "El disco debe estar asociado a un genero musical")
     private GeneroMusical generoMusical;
