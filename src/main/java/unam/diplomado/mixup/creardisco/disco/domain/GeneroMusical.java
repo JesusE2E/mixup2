@@ -10,7 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"descripcion"}))
+@Table(name = "genero_musical", uniqueConstraints = @UniqueConstraint(columnNames = {"descripcion"}))
 public class GeneroMusical implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

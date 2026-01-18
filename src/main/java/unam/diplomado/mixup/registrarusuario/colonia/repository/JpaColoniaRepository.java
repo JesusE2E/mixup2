@@ -44,6 +44,7 @@ public class JpaColoniaRepository implements  ColoniaRepository {
     @Override
     public Colonia saveOrUpdate(Colonia colonia) {
         entityManager.persist(colonia);
+
         return colonia;
 
     }

@@ -27,7 +27,7 @@ public class DiscoServiceImpl implements DiscoService{
         Optional<Disquera> disqueraExistente=disqueraRepository.findById(disco.getDisquera().getId());
 
        if(disqueraExistente.isEmpty()){
-           throw new RecordLabelNotFoundException(disco.getDisquera().getId());
+          throw new RecordLabelNotFoundException(disco.getDisquera().getId());
        }
        //asignar la disquera de la base de datos para mantener la consistencia en los datos
        disco.setDisquera(disqueraExistente.get());
@@ -35,7 +35,7 @@ public class DiscoServiceImpl implements DiscoService{
         //Validar la existencia del artista al cuañl se asocia el disco
         Optional<Artista> artistaExistente=artistaRepository.findById(disco.getArtista().getId());
        if(artistaExistente.isEmpty()){
-           throw new ArtistNotFoundException(disco.getArtista().getId());
+          throw new ArtistNotFoundException(disco.getArtista().getId());
        }
         //asignar el artista de la base de datos para mantener la consistencia en los datos
        disco.setArtista(artistaExistente.get());
@@ -60,5 +60,6 @@ public class DiscoServiceImpl implements DiscoService{
         discoRepository.save(disco);
 
        return disco;
-    }
+
+}
 }
