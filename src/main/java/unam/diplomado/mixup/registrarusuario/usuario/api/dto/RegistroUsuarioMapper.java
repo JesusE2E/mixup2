@@ -14,20 +14,24 @@ public class RegistroUsuarioMapper {
     }
 
     public Usuario toUsuario(UsuarioRequestDTO usuarioRequestDTO){
+
         return new Usuario(null,
                 usuarioRequestDTO.getNombre(),
                 usuarioRequestDTO.getPrimerApellido(),
                 usuarioRequestDTO.getSegundoApellido(),
-                usuarioRequestDTO.getEmail(),
                 usuarioRequestDTO.getPassword(),
+                usuarioRequestDTO.getEmail(),
                 usuarioRequestDTO.getRfc()
                 );
     }
 
+
     public Domicilio toDomicilio(DomicilioDTO domicilioDTO){
         return new Domicilio(
-                domicilioDTO.getCalle(), domicilioDTO.getNumExterior(),
-                domicilioDTO.getNumInterior(), domicilioDTO.getColonia(),
+                domicilioDTO.getCalle(),
+                domicilioDTO.getNumExterior(),
+                domicilioDTO.getNumInterior(),
+                domicilioDTO.getColonia(),
                 domicilioDTO.getTipoDomicilio());
     }
 

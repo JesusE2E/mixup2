@@ -19,8 +19,7 @@ public class TipoDomicilio implements Serializable {
 
     private String descripcion;
 
-    @OneToMany(mappedBy = "tipoDomicilio")
-    private List<Domicilio> domicilios;
+
 
 
 

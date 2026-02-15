@@ -18,4 +18,10 @@ public class Artista implements Serializable {
     private Integer id;
 
     private String nombre;
+
+    public Artista(Integer id) {
+        this.id = id;
+    }
 }
+
+

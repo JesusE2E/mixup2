@@ -1,0 +1,14 @@
+
+
+{
+  "titulo":"Cancion Test",
+  "existencia":10,
+  "precio":100,
+  "descuento":10.0,
+  "fechaLanzamiento":"2023-08-15T00:00:00",
+  "imagen":"www.exitosMusicales.com.mx",
+  "idArtista":1,
+  "idGeneroMusical":1,
+  "idDisquera":1
+
+}

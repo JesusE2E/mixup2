@@ -17,4 +17,7 @@ public class Disquera implements Serializable {
     private Integer id;
 
     private String nombre;
+
+    public Disquera(Integer idDisquera) {
+        this.id=idDisquera;    }
 }

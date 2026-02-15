@@ -2,6 +2,7 @@ package unam.diplomado.mixup.creardisco.disco.service;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
+import unam.diplomado.mixup.creardisco.disco.api.exception.RecordLabelNotFoundExceptionMapper;
 import unam.diplomado.mixup.creardisco.disco.domain.*;
 import unam.diplomado.mixup.creardisco.disco.repository.ArtistaRepository;
 import unam.diplomado.mixup.creardisco.disco.repository.DiscoRepository;
@@ -27,7 +28,7 @@ public class DiscoServiceImpl implements DiscoService{
         Optional<Disquera> disqueraExistente=disqueraRepository.findById(disco.getDisquera().getId());
 
        if(disqueraExistente.isEmpty()){
-           throw new RecordLabelNotFoundException(disco.getDisquera().getId());
+        throw new RecordLabelNotFoundException(disco.getDisquera().getId());
        }
        //asignar la disquera de la base de datos para mantener la consistencia en los datos
        disco.setDisquera(disqueraExistente.get());
